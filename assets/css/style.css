@@ -2,13 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-.menu__item {
-  @apply text-white h-96 w-96 border-white;
+@layer components {
+  .menu__btn {
+    @apply mx-auto flex -translate-y-7 items-center justify-center gap-2 rounded-full border-2 border-opacity-25 border-gray-400 bg-white px-12 py-4 text-xl text-black transition-all hover:bg-[#c83c10] hover:text-white hover:border-transparent hover:border-opacity-0  hover:[&>.icon]:stroke-white;
+  }
+  .added {
+    @apply justify-between gap-10;
+  }
+  .added > .icon__btn {
+    @apply border-2 border-[#c83c10] w-9 h-9 p-2 rounded-full hover:border-white;
+  }
+  .added:hover .icon__btn {
+    @apply border-white hover:[&>.icon]:stroke-white;
+  }
+  svg.icon {
+    @apply stroke-[#c83c10] outline-1 outline-offset-2 outline-[#c83c10];
+  }
+  .menu__btn:hover > .icon__btn > .icon {
+    @apply stroke-white transition-all;
+  }
 }
-/* #c83c10 */
-img[alt="Shopping cart"] {
-  background-color: var(red);
-  mask-image: url(https://www.svgrepo.com/show/80543/shopping-cart-outline.svg);
-  mask-size: cover;
-  background-image: none;
+.close.icon {
+  color: #000;
+  position: relative;
+  margin-top: 0;
+  margin-left: 0;
+  width: 21px;
+  height: 21px;
+}
+
+.close.icon:before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  width: 21px;
+  height: 1px;
+  background-color: currentColor;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.close.icon:after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  width: 21px;
+  height: 1px;
+  background-color: currentColor;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
