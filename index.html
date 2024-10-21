@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Product list with cart</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="p-5 m-auto">
+      <h1 class="bg-">Desserts</h1>
+      <div
+        class="main flex h-80% w-full flex-col items-center justify-center gap-4 shadow md:py-3 xl:border-blue-700 lg:flex-row xl:w-[86%] mx-auto"
+      >
+        <div
+          class="main__items grid grid-cols-1 gap-2 border-2 border-red-500 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-11 sm:border-blue-600 md:grid-cols-3 md:border-green-700 md:gap-x-8 md:gap-y-12 xl:border-orange-500 2xl:border-violet-700"
+        >
+          <div class="menu__item rounded">
+            <div class="menu__img h-70% w-full object-cover">
+              <img
+                src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=400"
+                class="h-full w-full rounded-2xl"
+                alt=""
+              />
+            </div>
+            <button
+              class="menu__btn border-1 mx-auto flex -translate-y-7 items-center justify-center gap-2 rounded-3xl border-2 border-gray-700 bg-white px-4 py-2 text-xl text-black transition-all hover:bg-[#c83c10]"
+            >
+              <img
+                class="feature__icon h-8"
+                src="https://www.svgrepo.com/show/80543/shopping-cart-outline.svg"
+              />
+              alt="Shopping Cart" /> Add to cart
+            </button>
+            <div class="menu__content space-y-0 px-2">
+              <h3 class="menu__title text-gray-500">Pie</h3>
+              <p class="menu__description text-2xl font-bold text-black">
+                Saeed Developer
+              </p>
+              <div class="menu__price text-1xl font-bold text-[#c83c10]">
+                $10.00
+              </div>
+            </div>
+          </div>
+
+          <!-- Cart -->
+        </div>
+        <div
+          class="main__cart h-full border-2 border-blue-600 p-2 space-y-8 self-start xl:flex-grow m-auto"
+        >
+          <h3 class="text-[#c83c10] text-2xl font-bold">Your Cart(0)</h3>
+          <img src="./img.png" alt="Cart Image" class="m-auto" />
+          <p class="text-[#c83c10] text-2xl font-normal text-center">
+            Items you will add will be here  
+          </p>
+        </div>
+      </div>
+    </main>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+
+    <script type="module" src="./assets/js/script.js"></script>
+  </body>
+</html>
+
+<!-- Breakpoint prefix	Minimum width	CSS
+sm	640px	@media (min-width: 640px) { ... }
+md	768px	@media (min-width: 768px) { ... }
+lg	1024px	@media (min-width: 1024px) { ... }
+xl	1280px	@media (min-width: 1280px) { ... }
+2xl	1536px	@media (min-width: 1536px) { ... } -->
+
+<!-- <div class="menu__item rounded">
+  <div class="menu__img h-70% w-full object-cover">
+    <img
+      src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=400"
+      class="h-full w-full rounded-2xl"
+      alt=""
+    />
+  </div>
+  <button
+    class="menu__btn border-1 mx-auto flex -translate-y-7 items-center justify-center gap-2 rounded-3xl border-2 border-gray-700 bg-white px-4 py-2 text-xl text-black transition-all hover:bg-[#c83c10]"
+  >
+    <img
+      class="feature__icon h-8"
+      src="https://www.svgrepo.com/show/80543/shopping-cart-outline.svg"
+      alt="Shopping Cart"
+    />
+    Add to cart
+  </button>
+  <div class="menu__content space-y-0 px-2">
+    <h3 class="menu__title text-gray-500">Pie</h3>
+    <p class="menu__description text-2xl font-bold text-black">
+      Saeed Developer
+    </p>
+    <div class="menu__price text-1xl font-bold text-[#c83c10]">
+      $10.00
+    </div>
+  </div>
+</div> -->

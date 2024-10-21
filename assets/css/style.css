@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.menu__item {
+  @apply text-white h-96 w-96 border-white;
+}
+/* #c83c10 */
+img[alt="Shopping cart"] {
+  background-color: var(red);
+  mask-image: url(https://www.svgrepo.com/show/80543/shopping-cart-outline.svg);
+  mask-size: cover;
+  background-image: none;
+}
