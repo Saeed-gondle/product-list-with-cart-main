@@ -5,8 +5,9 @@
   "main": "tailwind.config.js",
   "type": "module",
   "scripts": {
-    "start": "vite",
-    "compile": "npx tailwindcss -i ./assets/css/style.css -o ./assets/css/styles.css --watch"
+    "start": "vite && npx tailwindcss -i ./assets/css/style.css -o ./assets/css/styles.css --watch",
+    "compile": "npx tailwindcss -i ./assets/css/style.css -o ./assets/css/styles.css --watch",
+    "build": "vite build"
   },
   "keywords": [],
   "author": "",
