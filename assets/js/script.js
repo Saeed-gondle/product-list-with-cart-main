@@ -1,9 +1,6 @@
 'use strict';
 let data;
-
-const addToCart = () => {
-  alert('added');
-};
+// Removed startBtn definition from here
 
 const increment = (n, el) => {
   document.querySelector(`${el}[data-id="${item.id}"]`).innerHTML = n++;
@@ -60,16 +57,16 @@ class Cart {
           <div class="menu__img h-[20rem] w-[20rem]">
            <picture class="  object-contain h-70% w-full inline-block">
            <source media="(min-width:768px)" srcset="${item.image.tablet}">
-           <source media="(min-width:465px)" srcset="${item.image.mobile}">
+           <source media="(min-width:300px)" srcset="${item.image.mobile}">
            <source media="(min-width:1440px)" srcset="${item.image.dekstop}">
-  <img src="${item.image.thumbnail}" alt="Flowers" class="menu__img object-contain h-[20rem] w-[25rem]" style="max-width:20rem !important;">
+  <img src="${item.image.thumbnail}" alt="Flowers" class="menu__img object-contain h-[20rem] w-[25rem] mx-w-[20rem] rounded-lg"style="max-width:20rem !important;" >
 </picture>
           </div>
           <button
-            class="menu__btn focus:outline-0"
+            class="menu__btn focus:outline-0 text-lg"
             data-id="${item.id}"
           >           
-          <svg class="icon w-8 h-8 hover:stroke-white" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+          <svg class="icon w-5 h-5 md:h-8 md:w-8 hover:stroke-white" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
             <use xlink:href="./assets/images/icons.svg#icon-add-to-cart"></use>
           </svg>
             Add to cart
@@ -126,6 +123,10 @@ class Cart {
     this.updateUi(this.#cartItems);
     this.setLocalStorage(this.#cartItems);
     this.addEvents(item.quantity, document.querySelector('.close'));
+
+    // 
+
+
   }
 
   addEvents(number, cross) {
@@ -142,6 +143,7 @@ class Cart {
     //     button.addEventListener('click', this.addCart.bind(this)); // Reattach the event listener
     //   });
     // }
+
     const decrement = (e) => {
       const item = this.#cartItems.find(item => item.id === e.target.dataset.id);
       item.quantity -= 1;
@@ -243,11 +245,26 @@ class Cart {
           This is a carbon-neutral delivery
         </p>
         <button
-          class="mt-6 w-full bg-orange-600 text-white py-3 rounded-md font-semibold hover:bg-orange-700 transition duration-300"
+          class="start-btn new-order mt-6 w-full bg-orange-600 text-white py-3 rounded-md font-semibold hover:bg-orange-700 transition duration-300"
         >
-          Confirm Order
+          Start Order
         </button>
         </div>`;
+    const confirmBtn = document.querySelector('.start-btn');
+    confirmBtn.addEventListener('click', () => {
+      if (confirm("Do you want to check out?")) {
+        const modelCart = document.querySelector('.model__cart');
+        modelCart.innerHTML = this.#cartContainer.innerHTML;
+        document.querySelector('.model').classList.toggle('hide');
+        const startBtn = document.getElementsByClassName('new-order')[1];
+        console.log(startBtn);
+        startBtn.addEventListener('click', () => {
+          localStorage.setItem('cart', JSON.stringify([]));
+          window.location.reload();
+        });
+
+      }
+    });
     const closeButtons = document.querySelectorAll('.cart__item');
     closeButtons.forEach(button => {
       button.addEventListener('click', e => {
@@ -285,6 +302,7 @@ class Cart {
         // button.addEventListener('click', this.addCart.bind(this)); // Reattach the event listener
       });
     });
+
   }
 }
 

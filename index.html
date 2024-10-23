@@ -31,18 +31,108 @@
         width: 100%;
         overflow-x: hidden;
         overflow-y: auto;
+        position: relative;
+      }
+      .model {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        border: 2px solid red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: not-allowed;
+        background: #000000ce;
+      }
+      .hide {
+        display: none;
+        pointer-events: none;
+        visibility: hidden;
+      }
+      @media (min-width: 1366px) {
+        html {
+          font-size: 75%;
+        }
+      }
+
+      @media (max-width: 800px) {
+        html {
+          font-size: 56.5%;
+        }
+      }
+      @media (max-width: 500px) {
+        html {
+          font-size: 50.25%;
+        }
+        img.menu__img {
+          max-width: 40rem !important;
+        }
+      }
+      @media (max-width: 450px) {
+        img.menu__img {
+          max-width: 100rem !important;
+          object-fit: cover;
+        }
+        .main__items {
+          grid-template-columns: repeat(2, minmax(0, 20rem));
+        }
+        .main {
+          flex-direction: column-reverse;
+        }
+        .main__items {
+          width: 80vw;
+          align-items: center;
+          justify-content: center;
+          border: none;
+        }
+      }
+      @media (max-width: 350px) {
+        img.menu__img {
+          max-width: 100rem !important;
+          object-fit: cover;
+        }
+        .main__items {
+          grid-template-columns: repeat(2, minmax(0, 20rem));
+        }
+        .main {
+          flex-direction: column-reverse;
+        }
+        .main__items {
+          width: 90vw;
+          align-items: center;
+          justify-content: center;
+          border: none;
+        }
+      }
+      @media (max-width: 320px) {
+        .main__items {
+          grid-template-columns: repeat(1, minmax(0, 20rem));
+        }
+
+        .main__items {
+          width: 90vw;
+          align-items: center;
+          justify-content: center;
+          border: none;
+        }
       }
     </style>
   </head>
 
-  <body>
-    <main class="p-5 m-auto">
+  <body class="relative">
+    <main class="p-5 m-auto relative">
       <h1 class="bg-">Desserts</h1>
       <div
-        class="main flex h-70% flex-col items-center justify-center gap-4 shadow md:py-3 xl:border-blue-700 lg:flex-row xl:w-[81%] m-auto"
+        class="main flex h-70% flex-col-reverse items-center justify-center gap-4 shadow md:py-3 lg:flex-row xl:w-[81%] m-auto"
       >
         <div
-          class="main__items grid grid-cols-1 gap-2 border-2 border-red-500 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-11 sm:border-blue-600 md:grid-cols-3 md:border-green-700 md:gap-x-8 md:gap-y-12 xl:border-orange-500 2xl:border-violet-700"
+          class="main__items w-[190rem] grid grid-cols-1 gap-[4rem]  sm:grid-cols-2 sm:gap-x-6 sm:gap-y-11 md:grid-cols-2 md:gap-x-8 md:gap-y-12"
+          style="
+            gap: 4rem;
+           
+          "
         >
           <div class="menu__item rounded">
             <div class="menu__img h-70% w-full object-cover">
@@ -75,7 +165,8 @@
           <!-- Cart -->
         </div>
         <div
-          class="main__cart h-full border-2 border-blue-600 p-2 space-y-8 self-start xl:flex-grow mx-auto xl:w-[50rem]"
+          class="main__cart  shadow-md h-full border-2 p-8 space-y-8 self-start xl:flex-grow mx-auto xl:w-[50rem]"
+          style="padding: 1rem;"
         >
           <h3 class="text-[#c83c10] text-4xl font-bold">Your Cart(0)</h3>
           <img
@@ -89,13 +180,140 @@
         </div>
       </div>
     </main>
+    <div class="model hide">
+      <div
+        class="model__cart h-full border-2 p-2 space-y-8 self-start xl:flex-grow mx-auto xl:w-[50rem]"
+      >
+        <h3 class="text-[#c83c10] text-4xl font-bold">Your Cart(3)</h3>
+        <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+          <div class="space-y-4">
+            <div class="cart__item flex justify-between items-center">
+              <div>
+                <h3 class="font-semibold text-xl">Vanilla Bean Crème Brûlée</h3>
+                <p class="text-gray-600 text-xl">
+                  <span class="text-[#c83c10] mx-3 text-xl font-extrabold"
+                    >1x</span
+                  >
+                  @ $7
+                </p>
+              </div>
+              <div class="flex items-center">
+                <span class="font-semibold text-2xl">$7</span>
+                <button
+                  class="ml-2 text-gray-400 hover:text-gray-600 close icon"
+                  data-id="2024-10-22T10:08:57.119Z1"
+                >
+                  <svg
+                    class="icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    data-id="2024-10-22T10:08:57.119Z1"
+                    viewBox="0 0 24 24"
+                  >
+                    <use
+                      xlink:href="./assets/images/icons.svg#icon-close"
+                    ></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="cart__item flex justify-between items-center">
+              <div>
+                <h3 class="font-semibold text-xl">Macaron Mix of Five</h3>
+                <p class="text-gray-600 text-xl">
+                  <span class="text-[#c83c10] mx-3 text-xl font-extrabold"
+                    >1x</span
+                  >
+                  @ $8
+                </p>
+              </div>
+              <div class="flex items-center">
+                <span class="font-semibold text-2xl">$8</span>
+                <button
+                  class="new-order ml-2 text-gray-400 hover:text-gray-600 close icon"
+                  data-id="2024-10-22T10:08:57.119Z2"
+                >
+                  <svg
+                    class="icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    data-id="2024-10-22T10:08:57.119Z2"
+                    viewBox="0 0 24 24"
+                  >
+                    <use
+                      xlink:href="./assets/images/icons.svg#icon-close"
+                    ></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="cart__item flex justify-between items-center">
+              <div>
+                <h3 class="font-semibold text-xl">Pistachio Baklava</h3>
+                <p class="text-gray-600 text-xl">
+                  <span class="text-[#c83c10] mx-3 text-xl font-extrabold"
+                    >1x</span
+                  >
+                  @ $4
+                </p>
+              </div>
+              <div class="flex items-center">
+                <span class="font-semibold text-2xl">$4</span>
+                <button
+                  class="ml-2 text-gray-400 hover:text-gray-600 close icon"
+                  data-id="2024-10-22T10:08:57.119Z4"
+                >
+                  <svg
+                    class="icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    data-id="2024-10-22T10:08:57.119Z4"
+                    viewBox="0 0 24 24"
+                  >
+                    <use
+                      xlink:href="./assets/images/icons.svg#icon-close"
+                    ></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mt-6 border-t pt-4">
+            <div class="flex justify-between items-center">
+              <span class="font-semibold">Order Total</span>
+              <span class="font-bold text-xl">$19</span>
+            </div>
+          </div>
+          <p class="mt-4 text-sm text-gray-600 flex items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 mr-1 text-green-500"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillrule="evenodd"
+                d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                cliprule="evenodd"
+              ></path>
+            </svg>
+            This is a carbon-neutral delivery
+          </p>
+          <button
+            class="mt-6 w-full bg-orange-600 text-white py-3 rounded-md font-semibold hover:bg-orange-700 transition duration-300"
+          >
+            Confirm Order
+          </button>
+        </div>
+      </div>
+    </div>
     <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
       Coded by <a href="#">Your Name Here</a>.
     </div>
     <button onclick="localStorage.removeItem('cart')">clear</button>
-    <script type="module" src="./assets/js/script.js"></script>
+    <script type="module" src="./assets/js/script.js" defer></script>
   </body>
 </html>
 
